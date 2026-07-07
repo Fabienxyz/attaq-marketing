@@ -1,0 +1,90 @@
+"use client";
+
+import Link from "next/link";
+import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
+import { heroContent, siteConfig } from "@/content/site-content";
+
+export function HeroSection() {
+  const reduceMotion = useReducedMotion();
+  const briefingHref = `mailto:${siteConfig.contactEmail}?subject=${encodeURIComponent(siteConfig.briefingSubject)}`;
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: reduceMotion ? 0 : 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  return (
+    <section
+      id="hero"
+      className="relative overflow-hidden border-b border-border-subtle"
+    >
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(61,139,253,0.08),transparent_60%)]"
+        aria-hidden="true"
+      />
+
+      <div className="section-shell relative !pt-32 lg:!pt-44">
+        <div className="container-main">
+          <motion.div
+            className="mx-auto max-w-4xl space-y-10 lg:space-y-12"
+            initial="hidden"
+            animate="visible"
+            transition={{ staggerChildren: reduceMotion ? 0 : 0.1 }}
+          >
+            <motion.p
+              variants={fadeUp}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="text-label text-foreground-muted"
+            >
+              {heroContent.eyebrow}
+            </motion.p>
+
+            <motion.div
+              variants={fadeUp}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="space-y-5"
+            >
+              <h1 className="text-display-xl text-foreground">
+                {heroContent.headline}
+                <span className="block text-foreground-muted">
+                  {heroContent.headlineSecondary}
+                </span>
+              </h1>
+              <p className="text-label text-accent">
+                {heroContent.subheadline}
+              </p>
+            </motion.div>
+
+            <motion.p
+              variants={fadeUp}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="max-w-3xl text-body-lg text-foreground-muted"
+            >
+              {heroContent.body}
+            </motion.p>
+
+            <motion.div
+              variants={fadeUp}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center"
+            >
+              <Link
+                href={briefingHref}
+                className="inline-flex items-center justify-center rounded-sm bg-foreground px-6 py-3 text-body-sm font-semibold text-background transition-opacity hover:opacity-90"
+              >
+                {heroContent.cta}
+              </Link>
+              <Link
+                href={briefingHref}
+                className="text-body-sm text-foreground-muted transition-colors hover:text-foreground"
+              >
+                {siteConfig.contactEmail}
+              </Link>
+            </motion.div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
