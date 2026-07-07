@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Fragment } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { betterTogetherContent, heroContent } from "@/content/site-content";
-import elastiflowLogo from "@/design-reference/Elastiflow-logo2.jpeg";
+import elastiflowLogo from "@/design-reference/logo_elastiflow_black2.jpg";
 import { cn } from "@/lib/utils";
 
 export function HeroSection() {
@@ -119,11 +119,15 @@ function StackItem({
 }) {
   if (item.type === "logo") {
     return (
-      <Image
-        src={elastiflowLogo}
-        alt="ElastiFlow"
-        className="h-7 w-auto lg:h-8"
-      />
+      <div className="text-lg leading-none lg:text-xl">
+        <Image
+          src={elastiflowLogo}
+          alt="ElastiFlow"
+          width={1273}
+          height={414}
+          className="h-[2em] w-auto"
+        />
+      </div>
     );
   }
 

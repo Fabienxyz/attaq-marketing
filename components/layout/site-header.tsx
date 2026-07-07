@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { BriefingRequestButton } from "@/components/briefing/briefing-request-button";
 import { heroContent, navLinks } from "@/content/site-content";
-import elastiflowLogo from "@/design-reference/Elastiflow-logo2.jpeg";
+import elastiflowLogo from "@/design-reference/logo_elastiflow_black2.jpg";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
@@ -153,7 +153,7 @@ function PartnershipIndicator({
   return (
     <div
       className={cn(
-        "flex flex-col gap-1.5 border-border-subtle md:border-r md:pr-5",
+        "flex flex-col gap-1.5 text-lg leading-none border-border-subtle md:border-r md:pr-5",
         align === "end" ? "items-end" : "items-start",
         className,
       )}
@@ -167,7 +167,7 @@ function PartnershipIndicator({
         alt="ElastiFlow"
         className={cn(
           "w-auto",
-          size === "large" ? "h-10" : "h-7 lg:h-8",
+          size === "large" ? "h-[1.35em]" : "h-[1.25em]",
         )}
         priority
       />
