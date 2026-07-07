@@ -1,9 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
+import { Fragment } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { BriefingRequestButton } from "@/components/briefing/briefing-request-button";
-import { heroContent, siteConfig } from "@/content/site-content";
+import { betterTogetherContent, heroContent, siteConfig } from "@/content/site-content";
+import elastiflowLogo from "@/design-reference/Elastiflow-logo2.jpeg";
+import { cn } from "@/lib/utils";
 
 export function HeroSection() {
   const reduceMotion = useReducedMotion();
@@ -65,6 +69,47 @@ export function HeroSection() {
             </motion.p>
 
             <motion.div
+              id="better-together"
+              variants={fadeUp}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="scroll-mt-24 space-y-5 border-t border-border-subtle pt-10"
+            >
+              <p className="text-label text-center text-foreground-subtle">
+                Better together
+              </p>
+
+              <div className="flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-4 sm:gap-y-3">
+                {betterTogetherContent.stack.map((item, index) => (
+                  <Fragment key={item.name}>
+                    <StackItem item={item} />
+                    {index < betterTogetherContent.stack.length - 1 && (
+                      <span
+                        className="text-base text-foreground-subtle"
+                        aria-hidden="true"
+                      >
+                        +
+                      </span>
+                    )}
+                  </Fragment>
+                ))}
+              </div>
+
+              <div className="flex flex-col items-center gap-1.5">
+                <span className="text-sm text-foreground-subtle" aria-hidden="true">
+                  ↓
+                </span>
+                {betterTogetherContent.outcomes.map((outcome) => (
+                  <p
+                    key={outcome}
+                    className="text-center font-display text-lg text-foreground"
+                  >
+                    {outcome}
+                  </p>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
               className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center"
@@ -81,5 +126,34 @@ export function HeroSection() {
         </div>
       </div>
     </section>
+  );
+}
+
+function StackItem({
+  item,
+}: {
+  item: (typeof betterTogetherContent.stack)[number];
+}) {
+  if (item.type === "logo") {
+    return (
+      <Image
+        src={elastiflowLogo}
+        alt="ElastiFlow"
+        className="h-7 w-auto lg:h-8"
+      />
+    );
+  }
+
+  return (
+    <p
+      className={cn(
+        "text-center font-medium tracking-tight text-foreground",
+        item.type === "brand"
+          ? "font-display text-lg lg:text-xl"
+          : "font-sans text-base lg:text-lg",
+      )}
+    >
+      {item.name}
+    </p>
   );
 }
