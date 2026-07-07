@@ -10,7 +10,7 @@ export function AsymmetricDisadvantageSection() {
   return (
     <section
       id="asymmetric-disadvantage"
-      className="scroll-mt-24 border-b border-border-subtle"
+      className="border-b border-border-subtle"
     >
       <div className="section-shell">
         <div className="container-main">

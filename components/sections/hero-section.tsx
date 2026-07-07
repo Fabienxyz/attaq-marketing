@@ -69,7 +69,7 @@ export function HeroSection() {
               id="better-together"
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="scroll-mt-24 space-y-5 border-t border-border-subtle pt-10"
+              className="space-y-5 border-t border-border-subtle pt-10"
             >
               <p className="text-label text-center text-foreground-subtle">
                 Better together

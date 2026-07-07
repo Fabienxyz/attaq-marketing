@@ -6,8 +6,8 @@ export const siteConfig = {
 
 export const navLinks = [
   { label: "Ecosystem", href: "#better-together" },
-  { label: "Problem", href: "#asymmetric-disadvantage" },
-  { label: "Solution", href: "#attaq-answer" },
+  { label: "Challenge", href: "#asymmetric-disadvantage" },
+  { label: "Security Graph", href: "#attaq-answer" },
   { label: "Product", href: "#see-it" },
   { label: "Integration", href: "#protect-investment" },
 ] as const;

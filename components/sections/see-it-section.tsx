@@ -36,7 +36,7 @@ function BulletList({ items }: { items: readonly string[] }) {
 
 export function SeeItSection() {
   return (
-    <section id="see-it" className="scroll-mt-24 border-b border-border-subtle">
+    <section id="see-it" className="border-b border-border-subtle">
       <div className="section-shell">
         <div className="container-main">
           <div className="mx-auto max-w-4xl space-y-6 lg:space-y-7">

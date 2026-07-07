@@ -10,7 +10,7 @@ export function AttaqAnswerSection() {
   return (
     <section
       id="attaq-answer"
-      className="scroll-mt-24 border-b border-border-subtle bg-background-elevated"
+      className="border-b border-border-subtle bg-background-elevated"
     >
       <div className="section-shell">
         <div className="container-main">
