@@ -9,12 +9,9 @@ export function SiteFooter() {
       <div className="section-shell !pb-12 !pt-16">
         <div className="container-main">
           <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-2xl space-y-4">
+            <div className="max-w-2xl">
               <p className="font-display text-display-md text-foreground">
                 {footerContent.tagline}
-              </p>
-              <p className="text-body-sm text-foreground-muted">
-                {footerContent.euLine}
               </p>
             </div>
 

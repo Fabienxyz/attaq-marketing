@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { protectInvestmentContent } from "@/content/site-content";
+import betterTogether from "@/design-reference/BetterTogether.jpeg";
 import {
   ScrollReveal,
   SectionIntro,
@@ -22,15 +24,18 @@ export function ProtectInvestmentSection() {
             />
           </ScrollReveal>
 
-          <div className="grid gap-px overflow-hidden rounded-sm border border-border bg-border md:grid-cols-2">
-            {protectInvestmentContent.points.map((point, index) => (
-              <ScrollReveal key={point} delay={index * 0.06}>
-                <article className="bg-background-subtle p-8 lg:p-10">
-                  <p className="text-body-lg text-foreground">{point}</p>
-                </article>
-              </ScrollReveal>
-            ))}
-          </div>
+          <ScrollReveal delay={0.06}>
+            <figure className="mx-auto max-w-4xl overflow-hidden rounded-sm border border-border bg-background-subtle p-2 lg:p-3">
+              <Image
+                src={betterTogether}
+                alt="Elastic Security, ElastiFlow, and ATTAQ.AI better together"
+                width={1600}
+                height={1000}
+                className="h-auto w-full object-contain"
+                sizes="(max-width: 1024px) 100vw, 896px"
+              />
+            </figure>
+          </ScrollReveal>
         </div>
       </div>
     </section>

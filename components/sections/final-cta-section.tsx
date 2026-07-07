@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { BriefingRequestButton } from "@/components/briefing/briefing-request-button";
 import { finalCtaContent, siteConfig } from "@/content/site-content";
 import { ScrollReveal } from "@/components/shared/section-primitives";
 
@@ -18,12 +19,7 @@ export function FinalCTASection() {
               </h2>
 
               <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-                <Link
-                  href={briefingHref}
-                  className="inline-flex items-center justify-center rounded-sm bg-foreground px-6 py-3 text-body-sm font-semibold text-background transition-opacity hover:opacity-90"
-                >
-                  {finalCtaContent.cta}
-                </Link>
+                <BriefingRequestButton>{finalCtaContent.cta}</BriefingRequestButton>
                 <Link
                   href={briefingHref}
                   className="text-body-sm text-foreground-muted transition-colors hover:text-foreground"

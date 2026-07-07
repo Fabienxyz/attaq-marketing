@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Source_Serif_4 } from "next/font/google";
+import { BriefingModalRoot } from "@/components/briefing/briefing-modal-root";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import "./globals.css";
@@ -36,9 +37,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${sourceSerif.variable}`}>
       <body className="min-h-screen antialiased">
-        <SiteHeader />
-        <main>{children}</main>
-        <SiteFooter />
+        <BriefingModalRoot>
+          <SiteHeader />
+          <main>{children}</main>
+          <SiteFooter />
+        </BriefingModalRoot>
       </body>
     </html>
   );

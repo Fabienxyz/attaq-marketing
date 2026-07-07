@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
+import { BriefingRequestButton } from "@/components/briefing/briefing-request-button";
 import { heroContent, siteConfig } from "@/content/site-content";
 
 export function HeroSection() {
@@ -69,12 +69,7 @@ export function HeroSection() {
               transition={{ duration: 0.5, ease: "easeOut" }}
               className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center"
             >
-              <Link
-                href={briefingHref}
-                className="inline-flex items-center justify-center rounded-sm bg-foreground px-6 py-3 text-body-sm font-semibold text-background transition-opacity hover:opacity-90"
-              >
-                {heroContent.cta}
-              </Link>
+              <BriefingRequestButton>{heroContent.cta}</BriefingRequestButton>
               <Link
                 href={briefingHref}
                 className="text-body-sm text-foreground-muted transition-colors hover:text-foreground"
