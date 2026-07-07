@@ -4,6 +4,7 @@ import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { useBriefingModal } from "@/components/briefing/briefing-modal-context";
 import {
   DEFAULT_BRIEFING_MESSAGE,
+  SUBMIT_ERROR_MESSAGE,
   submitBriefingRequest,
   validateBriefingForm,
   type BriefingFormData,
@@ -27,6 +28,7 @@ export function BriefingModal() {
   const [errors, setErrors] = useState<BriefingFormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -41,6 +43,7 @@ export function BriefingModal() {
       setErrors({});
       setIsSubmitting(false);
       setIsSuccess(false);
+      setSubmitError(null);
     }, 200);
   }, [closeBriefingModal]);
 
@@ -64,9 +67,12 @@ export function BriefingModal() {
     if (Object.keys(validationErrors).length > 0) return;
 
     setIsSubmitting(true);
+    setSubmitError(null);
     try {
       await submitBriefingRequest(formData);
       setIsSuccess(true);
+    } catch {
+      setSubmitError(SUBMIT_ERROR_MESSAGE);
     } finally {
       setIsSubmitting(false);
     }
@@ -187,6 +193,12 @@ export function BriefingModal() {
                   onChange={(value) => updateField("message", value)}
                 />
               </div>
+
+              {submitError && (
+                <p className="shrink-0 border-t border-border-subtle px-6 py-4 text-body-sm text-red-400 sm:px-8">
+                  {submitError}
+                </p>
+              )}
 
               <div className="flex shrink-0 flex-col-reverse gap-3 border-t border-border-subtle px-6 py-4 sm:flex-row sm:justify-end sm:px-8">
                 <button

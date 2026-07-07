@@ -1,5 +1,8 @@
 export const BRIEFING_RECIPIENT = "fabien@attaq.ai";
 
+export const SUBMIT_ERROR_MESSAGE =
+  "We couldn't send your request at the moment. Please try again in a few minutes or contact us directly at fabien@attaq.ai.";
+
 export type BriefingFormData = {
   fullName: string;
   company: string;
@@ -42,10 +45,17 @@ export function validateBriefingForm(
 export async function submitBriefingRequest(
   data: BriefingFormData,
 ): Promise<{ success: true }> {
-  // V1: simulated submission — connect to Brevo, Resend, or another email API here.
-  await new Promise((resolve) => setTimeout(resolve, 600));
+  const response = await fetch("/api/contact", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
 
-  void BRIEFING_RECIPIENT;
+  if (!response.ok) {
+    throw new Error(SUBMIT_ERROR_MESSAGE);
+  }
 
   return { success: true };
 }
