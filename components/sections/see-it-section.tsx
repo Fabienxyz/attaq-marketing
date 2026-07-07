@@ -39,16 +39,15 @@ export function SeeItSection() {
     <section id="see-it" className="border-b border-border-subtle">
       <div className="section-shell">
         <div className="container-main">
-          <div className="mx-auto max-w-4xl space-y-6 lg:space-y-7">
-            <ScrollReveal>
-              <SectionIntro
-                headline={seeItContent.headline}
-                subheadline={seeItContent.subheadline}
-                align="center"
-                className="space-y-3"
-              />
-            </ScrollReveal>
+          <ScrollReveal>
+            <SectionIntro
+              headline={seeItContent.headline}
+              subheadline={seeItContent.subheadline}
+              className="mb-6 space-y-3 lg:mb-7"
+            />
+          </ScrollReveal>
 
+          <div className="mx-auto max-w-4xl">
             <ScrollReveal delay={0.1}>
               <figure className="overflow-hidden rounded-sm border border-border bg-background-elevated">
                 <div className="p-1.5 lg:p-2">

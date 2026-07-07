@@ -13,7 +13,7 @@ export function FinalCTASection() {
       <div className="section-shell">
         <div className="container-main">
           <ScrollReveal>
-            <div className="mx-auto max-w-3xl space-y-8 text-center">
+            <div className="mx-auto max-w-3xl space-y-8">
               <h2 className="text-display-lg text-foreground">
                 {finalCtaContent.headline}
               </h2>
