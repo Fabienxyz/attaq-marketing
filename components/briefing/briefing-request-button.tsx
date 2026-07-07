@@ -10,16 +10,21 @@ const buttonClassName =
 export function BriefingRequestButton({
   children,
   className,
+  onOpen,
 }: {
   children: ReactNode;
   className?: string;
+  onOpen?: () => void;
 }) {
   const { openBriefingModal } = useBriefingModal();
 
   return (
     <button
       type="button"
-      onClick={openBriefingModal}
+      onClick={() => {
+        openBriefingModal();
+        onOpen?.();
+      }}
       className={cn(buttonClassName, className)}
     >
       {children}

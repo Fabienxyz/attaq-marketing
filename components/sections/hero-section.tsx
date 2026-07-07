@@ -1,17 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { Fragment } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { BriefingRequestButton } from "@/components/briefing/briefing-request-button";
-import { betterTogetherContent, heroContent, siteConfig } from "@/content/site-content";
+import { betterTogetherContent, heroContent } from "@/content/site-content";
 import elastiflowLogo from "@/design-reference/Elastiflow-logo2.jpeg";
 import { cn } from "@/lib/utils";
 
 export function HeroSection() {
   const reduceMotion = useReducedMotion();
-  const briefingHref = `mailto:${siteConfig.contactEmail}?subject=${encodeURIComponent(siteConfig.briefingSubject)}`;
 
   const fadeUp = {
     hidden: { opacity: 0, y: reduceMotion ? 0 : 20 },
@@ -107,20 +104,6 @@ export function HeroSection() {
                   </p>
                 ))}
               </div>
-            </motion.div>
-
-            <motion.div
-              variants={fadeUp}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center"
-            >
-              <BriefingRequestButton>{heroContent.cta}</BriefingRequestButton>
-              <Link
-                href={briefingHref}
-                className="text-body-sm text-foreground-muted transition-colors hover:text-foreground"
-              >
-                {siteConfig.contactEmail}
-              </Link>
             </motion.div>
           </motion.div>
         </div>

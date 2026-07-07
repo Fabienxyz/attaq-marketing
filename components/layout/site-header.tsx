@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { heroContent, navLinks, siteConfig } from "@/content/site-content";
+import { BriefingRequestButton } from "@/components/briefing/briefing-request-button";
+import { heroContent, navLinks } from "@/content/site-content";
 import elastiflowLogo from "@/design-reference/Elastiflow-logo2.jpeg";
 import { cn } from "@/lib/utils";
 
@@ -28,8 +29,6 @@ export function SiteHeader() {
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
-
-  const briefingHref = `mailto:${siteConfig.contactEmail}?subject=${encodeURIComponent(siteConfig.briefingSubject)}`;
 
   return (
     <header
@@ -67,12 +66,9 @@ export function SiteHeader() {
         <div className="flex shrink-0 items-center gap-4 lg:gap-5">
           <PartnershipIndicator className="hidden md:flex" align="end" />
 
-          <Link
-            href={briefingHref}
-            className="hidden rounded-sm border border-border bg-background-elevated px-4 py-2 text-body-sm font-medium text-foreground transition-colors hover:border-foreground-subtle hover:bg-background-subtle md:inline-flex"
-          >
+          <BriefingRequestButton className="hidden px-4 py-2 md:inline-flex">
             Request briefing
-          </Link>
+          </BriefingRequestButton>
 
           <button
             type="button"
@@ -127,13 +123,12 @@ export function SiteHeader() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href={briefingHref}
-              className="mt-2 rounded-sm border border-border bg-background-elevated px-4 py-3 text-center text-body-sm font-medium text-foreground"
-              onClick={() => setMobileOpen(false)}
+            <BriefingRequestButton
+              className="mt-2 w-full px-4 py-3"
+              onOpen={() => setMobileOpen(false)}
             >
               Request briefing
-            </Link>
+            </BriefingRequestButton>
             <PartnershipIndicator
               className="mt-4 border-t border-border-subtle pt-5 md:hidden"
               align="start"
