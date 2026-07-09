@@ -114,4 +114,6 @@ export const footerContent = {
   tagline:
     "Prioritized security decisions. Faster remediation. Reduced risk. Measurable impact.",
   euLine: "Made in the EU.",
+  trademarkNotice:
+    "Elastic, Elastic Security, OpenSearch and ElastiFlow are trademarks of their respective owners. Attaq.ai is an independent company and references these technologies solely to describe product interoperability and integration.",
 } as const;

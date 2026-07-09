@@ -28,9 +28,14 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <div className="mt-12 flex flex-col gap-2 border-t border-border-subtle pt-8 text-body-sm text-foreground-subtle sm:flex-row sm:items-center sm:justify-between">
-            <p>© {new Date().getFullYear()} Attaq.ai. All rights reserved.</p>
-            <p>Continuous Attack Path Analysis</p>
+          <div className="mt-12 border-t border-border-subtle pt-8">
+            <div className="flex flex-col gap-2 text-body-sm text-foreground-subtle sm:flex-row sm:items-center sm:justify-between">
+              <p>© {new Date().getFullYear()} Attaq.ai. All rights reserved.</p>
+              <p>Continuous Attack Path Analysis</p>
+            </div>
+            <p className="mt-4 max-w-4xl text-[0.75rem] leading-relaxed text-foreground-subtle">
+              {footerContent.trademarkNotice}
+            </p>
           </div>
         </div>
       </div>
